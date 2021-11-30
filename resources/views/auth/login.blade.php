@@ -7,6 +7,6 @@
     <title></title>
 </head>
 <body>
-    
+    <h1>This is the login template</h1>
 </body>
 </html>
