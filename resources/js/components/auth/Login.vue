@@ -20,8 +20,9 @@
                         </div>
                         <hr />
                         <div class="flex justify-center my-6">
-                            <button class="text-white h-12 rounded px-6 font-bold" style="background-color:#54b72b">Create
-                                new Account </button>
+                            <button class="text-white h-12 rounded px-6 font-bold" style="background-color:#54b72b">
+                                <router-link to="/createAccount">Create New Account</router-link>
+                            </button>
                         </div>
                     </form>
                     <p class="text-center text-sm">

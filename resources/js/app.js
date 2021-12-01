@@ -7,6 +7,7 @@ require('./bootstrap')
 
 window.Vue = require('vue').default
 
+import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 Vue.use(VueRouter)
@@ -20,10 +21,12 @@ Vue.use(VueRouter)
  */
 
 let routes = [
+    { path: '/', component: require('./components/auth/Login.vue').default },
     { path: '/login', components: require('./components/auth/Login.vue').default }
 ]
 
-Vue.components('/login', require('./components/auth/Login.vue').default)
+Vue.component('/', require('./components/Home.vue').default)
+Vue.component('/login', require('./components/auth/Login.vue').default)
 
 
 const router = new VueRouter({
@@ -39,4 +42,4 @@ const router = new VueRouter({
 const app = new Vue({
     el: '#app',
     router
-})
+}).$mount('#app')

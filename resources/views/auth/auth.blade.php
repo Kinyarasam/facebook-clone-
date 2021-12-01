@@ -8,6 +8,7 @@
     <title>facebook - login or Sign up</title>
 </head>
 <body id="app">
+    <router-view></router-view>
     <div >
         <p>
             <button class="p-2 m-24 mt-2 mb-2 rounded shadow-lg text-white w-24 bg-gray-500">
@@ -16,9 +17,6 @@
         </p>
 Hey there
 </div>
-<router-view>
-    <login />
-</router-view>
 
 </body>
 </html>

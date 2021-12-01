@@ -18,6 +18,14 @@ class LoginController extends Controller
     }
 
     /**
+     * 
+     * 
+     */
+    public function login() {
+        return ['message' => 'request received'];
+        
+    }
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
