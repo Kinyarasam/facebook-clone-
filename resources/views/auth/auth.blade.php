@@ -13,7 +13,7 @@
         <div >
             <p>
                 <button class="p-2 m-24 mt-2 mb-2 rounded shadow-lg text-white w-24 bg-gray-500">
-                    <router-link to="/login">Login</router-link>
+                    <router-link to="/dashboard">Login</router-link>
                 </button>
             </p>
             Hey there

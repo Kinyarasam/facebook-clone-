@@ -8,9 +8,11 @@
         <title>facebook - login or Sign up</title>
     </head>
     <body>        
-        <div id="app">
-           
-            <router-view></router-view>
+        <div class="bg-gray-300 min-h-screen w-full">
+            {{-- <div id="content">
+                <router-view></router-view>
+            </div> --}}
+
         </div>
         <script src="{{asset('js/app.js')}}" ></script>
    </body>

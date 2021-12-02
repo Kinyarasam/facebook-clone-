@@ -8,7 +8,9 @@ require('./bootstrap')
 window.Vue = require('vue').default
 
 // import Vue from 'vue'
+import Vue from 'vue'
 import VueRouter from 'vue-router'
+
 // import VueTailwind from 'vue-tailwind'
 
 Vue.use(VueRouter)
@@ -24,15 +26,20 @@ Vue.use(VueRouter)
 
 let routes = [
     { path: '/', component: require('./components/auth/Login.vue').default },
-    { path: '/login', components: require('./components/auth/Login.vue').default }
+    { path: '/login', component: require('./components/auth/Login.vue').default },
+    { path: '/home', component: require('./components/home/home.vue').default },
+    // { path: '/test', component: require('./components/ExampleComponent.vue').default },
 ]
 
 const router = new VueRouter({
-    routes
+    mode: 'history',
+    routes: routes
 })
 
+// Vue.component('example-component', require('./components/ExampleComponent.vue').default)
 // Vue.component('/', require('./components/Home.vue'))
 // Vue.component('/createAccount', require('./components/auth/CreateAccount.vue').default)
+// Vue.component('/home', require('./components/home/Home.vue').default)
 
 
 
@@ -44,5 +51,6 @@ const router = new VueRouter({
 
 const app = new Vue({
     el: '#app',
-    router
-}).$mount('#app')
+    router,
+    linkActiveClass: 'active'
+})

@@ -26,6 +26,14 @@ class LoginController extends Controller
         
     }
     /**
+     * 
+     * 
+     */
+    public function dash() {
+        return view('layouts/app');
+        
+    }
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

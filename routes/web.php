@@ -20,3 +20,6 @@ Route::get('/', function () {
 Route::get('/auth', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('auth');
 
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'login'])->name('login');
+// Route::get('/dashboard', [App\Http\Controllers\Auth\LoginController::class, 'dash'])->name('dashboard');
+
+Route::get('/{path}', [App\Http\Controllers\Auth\LoginController::class, 'index'])->where('path', '([A-z\-\/_.]+)?' );

@@ -1,9 +1,10 @@
 <template>
     <div>
-        <div class="p-20 h-screen w-screen flex flex-col md:flex-row items-center justify-center bg-gray-100 ">
+            <!-- Log in -->
+        <div id="LogIn">
             <div class="p-20 h-screen w-screen flex flex-col md:flex-row items-center justify-center bg-gray-100 ">
                 <div class="content text-3xl text-center md:text-left lg:mx-48">
-                    <h1 class="font-bold text-blue-500 text-6xl mt-5">Facebook</h1>
+                    <h1 class="font-bold text-blue-500 text-6xl mt-5">facebook</h1>
                     <p class="text-black text-2xl">facebook helps you connect and share with the people in your life</p>
             
                 </div>
@@ -22,15 +23,16 @@
                         </div>
                         <hr />
                         <div class="flex justify-center my-6 bt_c">
-                            <button @click="newModal = !newModal" class=" text-white h-12 rounded px-6 font-bold hover:opacity-95 hover:bg-green-600 " style="background-color:#54b72b" >
+                            <button @click.prevent="newModal = !newModal" class=" text-white h-12 rounded px-6 font-bold hover:opacity-95 hover:bg-green-600 " style="background-color:#54b72b" >
                                 <span class="fas fa-user-plus fa-fw">Create New Account</span>
                             </button>
                         </div> 
                     </form>
                     <p class="text-center text-sm">
-                        <span  class="font-semibold text-center w-full cursor-pointer">Create a Page</span> for a celebrity, band or business
+                        <span  class="font-semibold text-center w-full cursor-pointer" >Create a Page</span> for a celebrity, band or business
                     </p>
                 </div>
+                
             </div>
         </div>
         <!-- Create Account Modal -->
@@ -51,7 +53,7 @@
 
                </div>
                
-                <form @submit.prevent="createmode" action="" class="px-3 py-2">
+                <form action="" class="px-3 py-2">
                     <div class="flex justify-center items-center flex-col">
                         
                         <div class="grid-cols-2">
