@@ -13,35 +13,35 @@
                             class="w-full mb-3 px-4 py-3 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500" />
                         <input type='text' placeholder="Password"
                             class="w-full mb-3 px-4 py-3 border rounded-lg text-gray-700 focus:outline-none focus:border-blue-500" />
-                        <button class="text-white py-3 rounded-lg font-bold text-xl tracking-wider w-full"
+                        <button class="text-white py-3 rounded-lg font-bold text-xl tracking-wider w-full hover:opacity-95"
                             style="background-color:#1977f2;"
                             >
                             Log In</button>
                         <div class="flex justify-center my-4">
-                            <a class="text-blue-500 text-sm" href="#">Forgotten password?</a>
+                            <a class="text-blue-500 hover:underline text-sm" href="#">Forgotten password?</a>
                         </div>
                         <hr />
-                        <div class="flex justify-center my-6">
-                            <button class="text-white h-12 rounded px-6 font-bold" style="background-color:#54b72b">
-                                <router-link to="/createAccount">Create New Account</router-link>
+                        <div class="flex justify-center my-6 bt_c">
+                            <button @click="newModal = !newModal" class=" text-white h-12 rounded px-6 font-bold hover:opacity-95 hover:bg-green-600 " style="background-color:#54b72b" >
+                                <span class="fas fa-user-plus fa-fw">Create New Account</span>
                             </button>
-                        </div>
+                        </div> 
                     </form>
                     <p class="text-center text-sm">
-                        <span class="font-semibold text-center w-full">Create a Page</span> for a celebrity, band or business
+                        <span  class="font-semibold text-center w-full cursor-pointer">Create a Page</span> for a celebrity, band or business
                     </p>
                 </div>
             </div>
         </div>
         <!-- Create Account Modal -->
-        <div class="bg-white bg-opacity-75 absolute inset-0 flex justify-center items-center">
+        <div v-if="newModal" class="bg-white bg-opacity-75 absolute inset-0 flex justify-center items-center transition duration-500">
             <div class="bg-white shadow-xl lg:h-96 lg:w-96 h-3/5 w-48 rounded-lg modal">
                <div class="grid grid-cols-2 p-4  border-b-2">
                 <div class="text-4xl font-semibold">
                         Sign Up
                 </div>
-                <div class="place-self-end">
-                    <svg xmlns="http://www.w3.org/2000/svg" class=" place-self-end h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <div class="place-self-end" @click="newModal = !newModal">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer place-self-end h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
 
@@ -51,23 +51,23 @@
 
                </div>
                
-                <form action="" class="px-3 py-2">
+                <form @submit.prevent="createmode" action="" class="px-3 py-2">
                     <div class="flex justify-center items-center flex-col">
                         
                         <div class="grid-cols-2">
-                            <input type="text" placeholder="First name" class="mb-2 mx-2 w-48 p-2 rounded border-gray-400 bg-gray-100" />
-                            <input type="text" placeholder="Surname" class="mb-2 w-48 mx-2 px-4 p-2 rounded place-item-end border-gray-400 bg-gray-100"/>
+                            <input type="text" placeholder="First name" class="mb-2 mx-2 w-48 p-2 rounded cursor-pointer focus:outline-none border-gray-400 bg-gray-100" />
+                            <input type="text" placeholder="Surname" class="mb-2 w-48 mx-2 px-4 p-2 rounded cursor-pointer focus:outline-none place-item-end border-gray-400 bg-gray-100"/>
                         </div>
 
                         <div class="grid-1">
-                            <input type="text" placeholder="Mobile number or email address" class="mb-2 w-full p-2 rounded border-gray-400 bg-gray-100"/>
-                            <input type="text" placeholder="New Password" class="mb-2 w-full p-2 rounded border-gray-400 bg-gray-100"/>
+                            <input type="text" placeholder="Mobile number or email address" class="mb-2 cursor-pointer w-full focus:outline-none p-2 rounded border-gray-400 bg-gray-100"/>
+                            <input type="text" placeholder="New Password" class="mb-2 w-full p-2 rounded cursor-pointer focus:outline-none border-gray-400 bg-gray-100"/>
                         </div>
 
                     
                         <p class="text-sm mt-2 mx-3 text-gray-600 font-normal place-self-start">Date of birth</p>
                         <div class="grid-cols-3 justify-items-center">
-                            <select name="day" id="day" class="p-2 w-32 gender_f rounded border-gray-400">
+                            <select name="day" id="day" class="p-2 w-32 cursor-pointer gender_f rounded border-gray-400">
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -100,7 +100,7 @@
                                 <option value="30">30</option>
                                 <option value="31">31</option>
                             </select>
-                            <select name="month" id="month" class="p-2 mx-1 w-32 gender_f rounded border-gray-400">
+                            <select name="month" id="month" class="p-2 mx-1 w-32 gender_f rounded border-gray-400 cursor-pointer">
                                 <option value="jan">Jan</option>
                                 <option value="feb">Feb</option>
                                 <option value="mar">Mar</option>
@@ -114,7 +114,7 @@
                                 <option value="nov">Nov</option>
                                 <option value="dec">Dec</option>
                             </select>
-                            <select name="Year" id="year" class="p-2 w-32 gender_f rounded border-gray-400">
+                            <select name="Year" id="year" class="cursor-pointer p-2 w-32 gender_f rounded border-gray-400">
                                 <option value="">2021</option>
                                 <option value="">2020</option>
                                 <option value="">2019</option>
@@ -149,19 +149,7 @@
                                 <option value="">1990</option>
                             </select>
                         </div>
-                        <!-- <div class="mt-3 grid-cols-3">
-                            <input type="date" placeholder="Date of Birth" class="mb-2 w-5/6 p-2 rounded border-gray-400 bg-gray-100"/>
-                            <input type="radio" placeholder="Date of Birth" class="mb-2 w-5/6 p-2 rounded border-gray-400 bg-gray-100"/>
-
-                            <select class="menu">Date of Birth
-                            
-                            <option value="">date</option>
-                            <option value="">Month</option>
-                            <option value="">Year</option>
-                            </select> 
-
-                        </div> -->
-                        
+                                                
                         <p class="text-sm mt-1 mx-3 justify-start place-self-start">Gender</p>
                         <div class="grid grid-cols-3 gap-2">
                             <div class="gender_f p-2 mx-4 mb-2 border-gray-400 rounded w-32">
@@ -179,14 +167,15 @@
                             </div>
                         </div>
 
-                        <p class="mx-4 text-sm font-medium  text-gray-500 policy tracking-tighter">By clicking Sign Up, you agree to our <span class="text-blue-800 cursor-pointer">Terms</span>, <span class="text-blue-800 cursor-pointer">Data Policy</span> and <span class="text-blue-800 cursor-pointer">Cookie Policy</span>. You may receive SMS notifications from us and can opt out at any time.</p>
-                        <div class="btn_s text-center w-44 p-2 rounded-lg bg-green-500 hover:bg-green-800 hover:opacity-60 mt-4 text-white text-bold">
+                        <p class="mx-4 text-sm font-medium  text-gray-500 policy tracking-tighter">By clicking Sign Up, you agree to our <span class="text-blue-800 hover:underline cursor-pointer">Terms</span>, <span class="text-blue-800 hover:underline cursor-pointer">Data Policy</span> and <span class="text-blue-800 hover:underline cursor-pointer">Cookie Policy</span>. You may receive SMS notifications from us and can opt out at any time.</p>
+                        <div class="btn_s cursor-pointer tracking-widest text-center w-44 p-2 rounded-lg hover:opacity-90 mt-4 text-white text-bold">
                             <button type="submit" @click.prevent="" class="font-bold">Sign Up</button>
                         </div>
                     </div>
                 </form>
             </div>
-        </div>
+        </div> 
+                        
 
     </div>
   
@@ -194,11 +183,25 @@
 
 <script>
 export default {
+    data() {
+        return {
+            newModal: false,
+            createmode: false
+            // form: new Form({
+
+            // })
+        }
+    },
     mounted() {
         console.log('component mounted')  
     },
     methods : {
-
+        // newModal : false
+        // newModal() {
+        //     console.log('call Modal')
+        //     this.createmode = false
+        //     // $('#addNew').modal('hide')
+        // }
     }
 }
 </script>
@@ -224,4 +227,12 @@ input {
 .btn_s {
     background-color: rgb(40, 170, 00);
 }
+.btn_c {
+    background-color:#54b72b
+}
+.btn_c :hover {
+    background-color:red;
+    
+}
+
 </style>

@@ -2248,22 +2248,25 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  data: function data() {
+    return {
+      newModal: false,
+      createmode: false // form: new Form({
+      // })
+
+    };
+  },
   mounted: function mounted() {
     console.log('component mounted');
   },
-  methods: {}
+  methods: {// newModal : false
+    // newModal() {
+    //     console.log('call Modal')
+    //     this.createmode = false
+    //     // $('#addNew').modal('hide')
+    // }
+  }
 });
 
 /***/ }),
@@ -2371,7 +2374,7 @@ __webpack_require__.r(__webpack_exports__);
 
 var ___CSS_LOADER_EXPORT___ = _node_modules_css_loader_dist_runtime_api_js__WEBPACK_IMPORTED_MODULE_0___default()(function(i){return i[1]});
 // Module
-___CSS_LOADER_EXPORT___.push([module.id, "\ninput[data-v-4221c3ad] {\r\n  border-width: 1px;\n}\n.gender_f[data-v-4221c3ad] {\r\n    border-width: 1px;\r\n    /* width: 48px; */\n}\n.modal[data-v-4221c3ad] {\r\n    height: 550px;\r\n    width: 450px;\r\n    margin-top: 100px;\n}\n.policy[data-v-4221c3ad] {\r\n    font-size: 12px;\n}\n.btn_s[data-v-4221c3ad] {\r\n    background-color: rgb(40, 170, 00);\n}\r\n", ""]);
+___CSS_LOADER_EXPORT___.push([module.id, "\ninput[data-v-4221c3ad] {\r\n  border-width: 1px;\n}\n.gender_f[data-v-4221c3ad] {\r\n    border-width: 1px;\r\n    /* width: 48px; */\n}\n.modal[data-v-4221c3ad] {\r\n    height: 550px;\r\n    width: 450px;\r\n    margin-top: 100px;\n}\n.policy[data-v-4221c3ad] {\r\n    font-size: 12px;\n}\n.btn_s[data-v-4221c3ad] {\r\n    background-color: rgb(40, 170, 00);\n}\n.btn_c[data-v-4221c3ad] {\r\n    background-color:#54b72b\n}\n.btn_c[data-v-4221c3ad] :hover {\r\n    background-color:red;\n}\r\n\r\n", ""]);
 // Exports
 /* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = (___CSS_LOADER_EXPORT___);
 
@@ -20332,7 +20335,7 @@ var render = function () {
                       "button",
                       {
                         staticClass:
-                          "text-white py-3 rounded-lg font-bold text-xl tracking-wider w-full",
+                          "text-white py-3 rounded-lg font-bold text-xl tracking-wider w-full hover:opacity-95",
                         staticStyle: { "background-color": "#1977f2" },
                       },
                       [_vm._v("\n                        Log In")]
@@ -20342,23 +20345,32 @@ var render = function () {
                     _vm._v(" "),
                     _c("hr"),
                     _vm._v(" "),
-                    _c("div", { staticClass: "flex justify-center my-6" }, [
-                      _c(
-                        "button",
-                        {
-                          staticClass: "text-white h-12 rounded px-6 font-bold",
-                          staticStyle: { "background-color": "#54b72b" },
-                        },
-                        [
-                          _c(
-                            "router-link",
-                            { attrs: { to: "/createAccount" } },
-                            [_vm._v("Create New Account")]
-                          ),
-                        ],
-                        1
-                      ),
-                    ]),
+                    _c(
+                      "div",
+                      { staticClass: "flex justify-center my-6 bt_c" },
+                      [
+                        _c(
+                          "button",
+                          {
+                            staticClass:
+                              " text-white h-12 rounded px-6 font-bold hover:opacity-95 hover:bg-green-600 ",
+                            staticStyle: { "background-color": "#54b72b" },
+                            on: {
+                              click: function ($event) {
+                                _vm.newModal = !_vm.newModal
+                              },
+                            },
+                          },
+                          [
+                            _c(
+                              "span",
+                              { staticClass: "fas fa-user-plus fa-fw" },
+                              [_vm._v("Create New Account")]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
                   ]
                 ),
                 _vm._v(" "),
@@ -20370,119 +20382,151 @@ var render = function () {
       ]
     ),
     _vm._v(" "),
-    _c(
-      "div",
-      {
-        staticClass:
-          "bg-white bg-opacity-75 absolute inset-0 flex justify-center items-center",
-      },
-      [
-        _c(
+    _vm.newModal
+      ? _c(
           "div",
           {
             staticClass:
-              "bg-white shadow-xl lg:h-96 lg:w-96 h-3/5 w-48 rounded-lg modal",
+              "bg-white bg-opacity-75 absolute inset-0 flex justify-center items-center transition duration-500",
           },
           [
-            _c("div", { staticClass: "grid grid-cols-2 p-4  border-b-2" }, [
-              _c("div", { staticClass: "text-4xl font-semibold" }, [
-                _vm._v("\n                    Sign Up\n            "),
-              ]),
-              _vm._v(" "),
-              _c("div", { staticClass: "place-self-end" }, [
-                _c(
-                  "svg",
-                  {
-                    staticClass: " place-self-end h-6 w-6",
-                    attrs: {
-                      xmlns: "http://www.w3.org/2000/svg",
-                      fill: "none",
-                      viewBox: "0 0 24 24",
-                      stroke: "currentColor",
-                    },
-                  },
-                  [
-                    _c("path", {
-                      attrs: {
-                        "stroke-linecap": "round",
-                        "stroke-linejoin": "round",
-                        "stroke-width": "2",
-                        d: "M6 18L18 6M6 6l12 12",
-                      },
-                    }),
-                  ]
-                ),
-              ]),
-              _vm._v(" "),
-              _c(
-                "p",
-                { staticClass: "text-left text-gray-500 text-sm font-normal" },
-                [_vm._v("It's quick and easy.")]
-              ),
-            ]),
-            _vm._v(" "),
-            _c("form", { staticClass: "px-3 py-2", attrs: { action: "" } }, [
-              _c(
-                "div",
-                { staticClass: "flex justify-center items-center flex-col" },
-                [
-                  _vm._m(3),
-                  _vm._v(" "),
-                  _vm._m(4),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "text-sm mt-2 mx-3 text-gray-600 font-normal place-self-start",
-                    },
-                    [_vm._v("Date of birth")]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(5),
-                  _vm._v(" "),
-                  _c(
-                    "p",
-                    {
-                      staticClass:
-                        "text-sm mt-1 mx-3 justify-start place-self-start",
-                    },
-                    [_vm._v("Gender")]
-                  ),
-                  _vm._v(" "),
-                  _vm._m(6),
-                  _vm._v(" "),
-                  _vm._m(7),
+            _c(
+              "div",
+              {
+                staticClass:
+                  "bg-white shadow-xl lg:h-96 lg:w-96 h-3/5 w-48 rounded-lg modal",
+              },
+              [
+                _c("div", { staticClass: "grid grid-cols-2 p-4  border-b-2" }, [
+                  _c("div", { staticClass: "text-4xl font-semibold" }, [
+                    _vm._v("\n                    Sign Up\n            "),
+                  ]),
                   _vm._v(" "),
                   _c(
                     "div",
                     {
-                      staticClass:
-                        "btn_s text-center w-44 p-2 rounded-lg bg-green-500 hover:bg-green-800 hover:opacity-60 mt-4 text-white text-bold",
+                      staticClass: "place-self-end",
+                      on: {
+                        click: function ($event) {
+                          _vm.newModal = !_vm.newModal
+                        },
+                      },
                     },
                     [
                       _c(
-                        "button",
+                        "svg",
                         {
-                          staticClass: "font-bold",
-                          attrs: { type: "submit" },
-                          on: {
-                            click: function ($event) {
-                              $event.preventDefault()
-                            },
+                          staticClass: "cursor-pointer place-self-end h-6 w-6",
+                          attrs: {
+                            xmlns: "http://www.w3.org/2000/svg",
+                            fill: "none",
+                            viewBox: "0 0 24 24",
+                            stroke: "currentColor",
                           },
                         },
-                        [_vm._v("Sign Up")]
+                        [
+                          _c("path", {
+                            attrs: {
+                              "stroke-linecap": "round",
+                              "stroke-linejoin": "round",
+                              "stroke-width": "2",
+                              d: "M6 18L18 6M6 6l12 12",
+                            },
+                          }),
+                        ]
                       ),
                     ]
                   ),
-                ]
-              ),
-            ]),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticClass:
+                        "text-left text-gray-500 text-sm font-normal",
+                    },
+                    [_vm._v("It's quick and easy.")]
+                  ),
+                ]),
+                _vm._v(" "),
+                _c(
+                  "form",
+                  {
+                    staticClass: "px-3 py-2",
+                    attrs: { action: "" },
+                    on: {
+                      submit: function ($event) {
+                        $event.preventDefault()
+                        return _vm.createmode.apply(null, arguments)
+                      },
+                    },
+                  },
+                  [
+                    _c(
+                      "div",
+                      {
+                        staticClass:
+                          "flex justify-center items-center flex-col",
+                      },
+                      [
+                        _vm._m(3),
+                        _vm._v(" "),
+                        _vm._m(4),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass:
+                              "text-sm mt-2 mx-3 text-gray-600 font-normal place-self-start",
+                          },
+                          [_vm._v("Date of birth")]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(5),
+                        _vm._v(" "),
+                        _c(
+                          "p",
+                          {
+                            staticClass:
+                              "text-sm mt-1 mx-3 justify-start place-self-start",
+                          },
+                          [_vm._v("Gender")]
+                        ),
+                        _vm._v(" "),
+                        _vm._m(6),
+                        _vm._v(" "),
+                        _vm._m(7),
+                        _vm._v(" "),
+                        _c(
+                          "div",
+                          {
+                            staticClass:
+                              "btn_s cursor-pointer tracking-widest text-center w-44 p-2 rounded-lg hover:opacity-90 mt-4 text-white text-bold",
+                          },
+                          [
+                            _c(
+                              "button",
+                              {
+                                staticClass: "font-bold",
+                                attrs: { type: "submit" },
+                                on: {
+                                  click: function ($event) {
+                                    $event.preventDefault()
+                                  },
+                                },
+                              },
+                              [_vm._v("Sign Up")]
+                            ),
+                          ]
+                        ),
+                      ]
+                    ),
+                  ]
+                ),
+              ]
+            ),
           ]
-        ),
-      ]
-    ),
+        )
+      : _vm._e(),
   ])
 }
 var staticRenderFns = [
@@ -20511,9 +20555,14 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "flex justify-center my-4" }, [
-      _c("a", { staticClass: "text-blue-500 text-sm", attrs: { href: "#" } }, [
-        _vm._v("Forgotten password?"),
-      ]),
+      _c(
+        "a",
+        {
+          staticClass: "text-blue-500 hover:underline text-sm",
+          attrs: { href: "#" },
+        },
+        [_vm._v("Forgotten password?")]
+      ),
     ])
   },
   function () {
@@ -20521,9 +20570,11 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("p", { staticClass: "text-center text-sm" }, [
-      _c("span", { staticClass: "font-semibold text-center w-full" }, [
-        _vm._v("Create a Page"),
-      ]),
+      _c(
+        "span",
+        { staticClass: "font-semibold text-center w-full cursor-pointer" },
+        [_vm._v("Create a Page")]
+      ),
       _vm._v(" for a celebrity, band or business\n                "),
     ])
   },
@@ -20533,13 +20584,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "grid-cols-2" }, [
       _c("input", {
-        staticClass: "mb-2 mx-2 w-48 p-2 rounded border-gray-400 bg-gray-100",
+        staticClass:
+          "mb-2 mx-2 w-48 p-2 rounded cursor-pointer focus:outline-none border-gray-400 bg-gray-100",
         attrs: { type: "text", placeholder: "First name" },
       }),
       _vm._v(" "),
       _c("input", {
         staticClass:
-          "mb-2 w-48 mx-2 px-4 p-2 rounded place-item-end border-gray-400 bg-gray-100",
+          "mb-2 w-48 mx-2 px-4 p-2 rounded cursor-pointer focus:outline-none place-item-end border-gray-400 bg-gray-100",
         attrs: { type: "text", placeholder: "Surname" },
       }),
     ])
@@ -20550,12 +20602,14 @@ var staticRenderFns = [
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "grid-1" }, [
       _c("input", {
-        staticClass: "mb-2 w-full p-2 rounded border-gray-400 bg-gray-100",
+        staticClass:
+          "mb-2 cursor-pointer w-full focus:outline-none p-2 rounded border-gray-400 bg-gray-100",
         attrs: { type: "text", placeholder: "Mobile number or email address" },
       }),
       _vm._v(" "),
       _c("input", {
-        staticClass: "mb-2 w-full p-2 rounded border-gray-400 bg-gray-100",
+        staticClass:
+          "mb-2 w-full p-2 rounded cursor-pointer focus:outline-none border-gray-400 bg-gray-100",
         attrs: { type: "text", placeholder: "New Password" },
       }),
     ])
@@ -20568,7 +20622,8 @@ var staticRenderFns = [
       _c(
         "select",
         {
-          staticClass: "p-2 w-32 gender_f rounded border-gray-400",
+          staticClass:
+            "p-2 w-32 cursor-pointer gender_f rounded border-gray-400",
           attrs: { name: "day", id: "day" },
         },
         [
@@ -20639,7 +20694,8 @@ var staticRenderFns = [
       _c(
         "select",
         {
-          staticClass: "p-2 mx-1 w-32 gender_f rounded border-gray-400",
+          staticClass:
+            "p-2 mx-1 w-32 gender_f rounded border-gray-400 cursor-pointer",
           attrs: { name: "month", id: "month" },
         },
         [
@@ -20672,7 +20728,8 @@ var staticRenderFns = [
       _c(
         "select",
         {
-          staticClass: "p-2 w-32 gender_f rounded border-gray-400",
+          staticClass:
+            "cursor-pointer p-2 w-32 gender_f rounded border-gray-400",
           attrs: { name: "Year", id: "year" },
         },
         [
@@ -20797,17 +20854,23 @@ var staticRenderFns = [
       },
       [
         _vm._v("By clicking Sign Up, you agree to our "),
-        _c("span", { staticClass: "text-blue-800 cursor-pointer" }, [
-          _vm._v("Terms"),
-        ]),
+        _c(
+          "span",
+          { staticClass: "text-blue-800 hover:underline cursor-pointer" },
+          [_vm._v("Terms")]
+        ),
         _vm._v(", "),
-        _c("span", { staticClass: "text-blue-800 cursor-pointer" }, [
-          _vm._v("Data Policy"),
-        ]),
+        _c(
+          "span",
+          { staticClass: "text-blue-800 hover:underline cursor-pointer" },
+          [_vm._v("Data Policy")]
+        ),
         _vm._v(" and "),
-        _c("span", { staticClass: "text-blue-800 cursor-pointer" }, [
-          _vm._v("Cookie Policy"),
-        ]),
+        _c(
+          "span",
+          { staticClass: "text-blue-800 hover:underline cursor-pointer" },
+          [_vm._v("Cookie Policy")]
+        ),
         _vm._v(
           ". You may receive SMS notifications from us and can opt out at any time."
         ),
