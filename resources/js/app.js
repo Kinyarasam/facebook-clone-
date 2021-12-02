@@ -7,10 +7,12 @@ require('./bootstrap')
 
 window.Vue = require('vue').default
 
-import Vue from 'vue'
+// import Vue from 'vue'
 import VueRouter from 'vue-router'
+// import VueTailwind from 'vue-tailwind'
 
 Vue.use(VueRouter)
+    // Vue.use(VueTailwind, components)
 
 /**
  * The following block of code may be used to automatically register your
@@ -25,13 +27,14 @@ let routes = [
     { path: '/login', components: require('./components/auth/Login.vue').default }
 ]
 
-Vue.component('/', require('./components/Home.vue').default)
-Vue.component('/login', require('./components/auth/Login.vue').default)
-
-
 const router = new VueRouter({
     routes
 })
+
+// Vue.component('/', require('./components/Home.vue'))
+// Vue.component('/createAccount', require('./components/auth/CreateAccount.vue').default)
+
+
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to
