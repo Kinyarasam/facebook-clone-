@@ -53,7 +53,7 @@
 
                </div>
                
-                <form action="" class="px-3 py-2">
+                <form @submit.prevent="createUser" class="px-3 py-2">
                     <div class="flex justify-center items-center flex-col">
                         
                         <div class="grid-cols-2">
@@ -173,7 +173,7 @@
 
                         <p class="mx-4 text-sm font-medium  text-gray-500 policy tracking-tighter">By clicking Sign Up, you agree to our <span class="text-blue-800 hover:underline cursor-pointer">Terms</span>, <span class="text-blue-800 hover:underline cursor-pointer">Data Policy</span> and <span class="text-blue-800 hover:underline cursor-pointer">Cookie Policy</span>. You may receive SMS notifications from us and can opt out at any time.</p>
                         <div class="btn_s cursor-pointer tracking-widest text-center w-44 p-2 rounded-lg hover:opacity-90 mt-4 text-white text-bold">
-                            <button type="submit" @click.prevent="" class="font-bold">Sign Up</button>
+                            <button type="submit" @click.prevent="createUser" class="font-bold">Sign Up</button>
                         </div>
                     </div>
                 </form>
@@ -203,12 +203,20 @@ export default {
         console.log('component mounted')  
     },
     methods : {
-        // newModal : false
-        // newModal() {
-        //     console.log('call Modal')
-        //     this.createmode = false
-        //     // $('#addNew').modal('hide')
-        // }
+        createUser() {
+            /**
+             * send post request to the server
+             */
+            console.log('create user')
+            this.form.post('api/user')
+            .then( (data) => {
+                console.log(data)
+            })
+            .catch( (error) => {
+                console.log(error)
+            })
+        }
+        
     }
 }
 </script>

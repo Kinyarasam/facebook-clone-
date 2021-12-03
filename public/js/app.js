@@ -2268,12 +2268,18 @@ __webpack_require__.r(__webpack_exports__);
   mounted: function mounted() {
     console.log('component mounted');
   },
-  methods: {// newModal : false
-    // newModal() {
-    //     console.log('call Modal')
-    //     this.createmode = false
-    //     // $('#addNew').modal('hide')
-    // }
+  methods: {
+    createUser: function createUser() {
+      /**
+       * send post request to the server
+       */
+      console.log('create user');
+      this.form.post('api/user').then(function (data) {
+        console.log(data);
+      })["catch"](function (error) {
+        console.log(error);
+      });
+    }
   }
 });
 
@@ -20578,7 +20584,15 @@ var render = function () {
                 _vm._v(" "),
                 _c(
                   "form",
-                  { staticClass: "px-3 py-2", attrs: { action: "" } },
+                  {
+                    staticClass: "px-3 py-2",
+                    on: {
+                      submit: function ($event) {
+                        $event.preventDefault()
+                        return _vm.createUser.apply(null, arguments)
+                      },
+                    },
+                  },
                   [
                     _c(
                       "div",
@@ -20760,6 +20774,7 @@ var render = function () {
                                 on: {
                                   click: function ($event) {
                                     $event.preventDefault()
+                                    return _vm.createUser.apply(null, arguments)
                                   },
                                 },
                               },
