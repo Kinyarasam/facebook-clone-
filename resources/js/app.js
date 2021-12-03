@@ -10,19 +10,21 @@ window.Vue = require('vue').default
 // import Vue from 'vue'
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+// import Form from 'vform'
+import { Form, Errors } from 'vform'
 
 // import VueTailwind from 'vue-tailwind'
 
 Vue.use(VueRouter)
+window.Form = Form
     // Vue.use(VueTailwind, components)
-
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+    /**
+     * The following block of code may be used to automatically register your
+     * Vue components. It will recursively scan this directory for the Vue
+     * components and automatically register them with their "basename".
+     *
+     * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
+     */
 
 let routes = [
     { path: '/', component: require('./components/auth/Login.vue').default },
@@ -36,10 +38,13 @@ const router = new VueRouter({
     routes: routes
 })
 
-// Vue.component('example-component', require('./components/ExampleComponent.vue').default)
-// Vue.component('/', require('./components/Home.vue'))
-// Vue.component('/createAccount', require('./components/auth/CreateAccount.vue').default)
-// Vue.component('/home', require('./components/home/Home.vue').default)
+Vue.component(Errors.name, Errors)
+    // Vue.component(AlertError.name, AlertError)
+    // Vue.component(HasError.name, HasError)
+    // Vue.component('example-component', require('./components/ExampleComponent.vue').default)
+    // Vue.component('/', require('./components/Home.vue'))
+    // Vue.component('/createAccount', require('./components/auth/CreateAccount.vue').default)
+    // Vue.component('/home', require('./components/home/Home.vue').default)
 
 
 

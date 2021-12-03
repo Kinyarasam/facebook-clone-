@@ -23,7 +23,7 @@
                         </div>
                         <hr />
                         <div class="flex justify-center my-6 bt_c">
-                            <button @click.prevent="newModal = !newModal" class=" text-white h-12 rounded px-6 font-bold hover:opacity-95 hover:bg-green-600 " style="background-color:#54b72b" >
+                            <button @click.prevent="createMode = !createMode" class=" text-white h-12 rounded px-6 font-bold hover:opacity-95 hover:bg-green-600 " style="background-color:#54b72b" >
                                 <span class="fas fa-user-plus fa-fw">Create New Account</span>
                             </button>
                         </div> 
@@ -36,13 +36,13 @@
             </div>
         </div>
         <!-- Create Account Modal -->
-        <div v-if="newModal" class="bg-white bg-opacity-75 absolute inset-0 flex justify-center items-center transition duration-500">
+        <div v-if="createMode" class="bg-white bg-opacity-75 absolute inset-0 flex justify-center items-center transition duration-500">
             <div class="bg-white shadow-xl lg:h-96 lg:w-96 h-3/5 w-48 rounded-lg modal">
                <div class="grid grid-cols-2 p-4  border-b-2">
                 <div class="text-4xl font-semibold">
                         Sign Up
                 </div>
-                <div class="place-self-end" @click="newModal = !newModal">
+                <div class="place-self-end" @click="createMode = !createMode">
                     <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer place-self-end h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                     </svg>
@@ -57,13 +57,15 @@
                     <div class="flex justify-center items-center flex-col">
                         
                         <div class="grid-cols-2">
-                            <input type="text" placeholder="First name" class="mb-2 mx-2 w-48 p-2 rounded cursor-pointer focus:outline-none border-gray-400 bg-gray-100" />
-                            <input type="text" placeholder="Surname" class="mb-2 w-48 mx-2 px-4 p-2 rounded cursor-pointer focus:outline-none place-item-end border-gray-400 bg-gray-100"/>
+                            <input v-model="form.firstname" name="firstname" type="text" placeholder="First name" class="mb-2 mx-2 w-48 p-2 rounded cursor-pointer focus:outline-none border-gray-400 bg-gray-100" />
+                            <div v-if="form.errors.has('firstname')" v-html="form.errors.get('firstname')" />
+
+                            <input v-model="form.surname" name="surname" type="text" placeholder="Surname" class="mb-2 w-48 mx-2 px-4 p-2 rounded cursor-pointer focus:outline-none place-item-end border-gray-400 bg-gray-100"/>
                         </div>
 
                         <div class="grid-1">
-                            <input type="text" placeholder="Mobile number or email address" class="mb-2 cursor-pointer w-full focus:outline-none p-2 rounded border-gray-400 bg-gray-100"/>
-                            <input type="text" placeholder="New Password" class="mb-2 w-full p-2 rounded cursor-pointer focus:outline-none border-gray-400 bg-gray-100"/>
+                            <input type="email" v-model="form.email" name="email" placeholder="Mobile number or email address" class="mb-2 cursor-pointer w-full focus:outline-none p-2 rounded border-gray-400 bg-gray-100"/>
+                            <input type="text" v-model="form.password" name="password" placeholder="New Password" class="mb-2 w-full p-2 rounded cursor-pointer focus:outline-none border-gray-400 bg-gray-100"/>
                         </div>
 
                     
@@ -187,11 +189,14 @@
 export default {
     data() {
         return {
-            newModal: false,
-            createmode: false
-            // form: new Form({
-
-            // })
+            createMode: true,
+            form: new Form({
+                firstname : '',
+                surname : '',
+                email : '',
+                mobilenumber : '',
+                password : ''
+            })
         }
     },
     mounted() {
